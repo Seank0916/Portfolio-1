@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2495,6 +2495,7 @@ GameObject:
   - component: {fileID: 1333430166}
   - component: {fileID: 1333430169}
   - component: {fileID: 1333430167}
+  - component: {fileID: 1333430170}
   m_Layer: 5
   m_Name: Btn_Start
   m_TagString: Untagged
@@ -2576,6 +2577,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333430165}
   m_CullTransparentMesh: 1
+--- !u!114 &1333430170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333430165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1b2ec40539dfb489738464e96bd635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartButton: {fileID: 1333430167}
 --- !u!1 &1345533369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,7 +3172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1485196714
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3832,6 +3846,7 @@ GameObject:
   - component: {fileID: 1952455195}
   - component: {fileID: 1952455197}
   - component: {fileID: 1952455196}
+  - component: {fileID: 1952455198}
   m_Layer: 5
   m_Name: Btn_Setting
   m_TagString: Untagged
@@ -3912,6 +3927,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952455194}
   m_CullTransparentMesh: 1
+--- !u!114 &1952455198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952455194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e0a1c11ff261348963bc6467167c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIPanel: {fileID: 450628646}
+  OpenButton: {fileID: 1952455196}
+  CloseButton: {fileID: 1376231160}
 --- !u!1 &1975307900
 GameObject:
   m_ObjectHideFlags: 0
