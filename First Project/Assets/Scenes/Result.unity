@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 375752112}
   - component: {fileID: 375752115}
   - component: {fileID: 375752113}
+  - component: {fileID: 375752116}
   m_Layer: 5
   m_Name: Btn_Home
   m_TagString: Untagged
@@ -350,6 +351,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375752111}
   m_CullTransparentMesh: 1
+--- !u!114 &375752116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375752111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafcd8eb2cb19204787f6c1383084221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HomeButton: {fileID: 375752113}
 --- !u!1 &399164369
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +728,7 @@ GameObject:
   - component: {fileID: 911527818}
   - component: {fileID: 911527820}
   - component: {fileID: 911527819}
+  - component: {fileID: 911527821}
   m_Layer: 5
   m_Name: Btn_Next
   m_TagString: Untagged
@@ -795,6 +810,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911527817}
   m_CullTransparentMesh: 1
+--- !u!114 &911527821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911527817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85bd8813f70b92742b6352a1f224acfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextGameButton: {fileID: 911527819}
 --- !u!1 &914942468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1319,7 @@ GameObject:
   - component: {fileID: 1993161766}
   - component: {fileID: 1993161769}
   - component: {fileID: 1993161767}
+  - component: {fileID: 1993161770}
   m_Layer: 5
   m_Name: Btn_Restart
   m_TagString: Untagged
@@ -1372,6 +1401,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993161765}
   m_CullTransparentMesh: 1
+--- !u!114 &1993161770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993161765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1e9411c4d9b6341b4c315022dd8c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RestartButton: {fileID: 1993161767}
 --- !u!1 &2091147454
 GameObject:
   m_ObjectHideFlags: 0
