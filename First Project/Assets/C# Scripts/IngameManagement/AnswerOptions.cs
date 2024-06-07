@@ -9,8 +9,8 @@ public class AnswerOptions : MonoBehaviour
     private int correctAnswerIndex;
     public Button[] answerButtons;
     public TextMeshProUGUI problemText;
-    public TextMeshProUGUI resultText; 
-    public TimerController timerController; 
+    public TextMeshProUGUI resultText; // New field for displaying the result
+    public TimerController timerController; // Reference to the TimerController
 
     private void Start()
     {
@@ -41,11 +41,11 @@ public class AnswerOptions : MonoBehaviour
 
         for (int i = 0; i < answerButtons.Length; i++)
         {
-            //if (answerButtons[i] == null)
-            //{
-            //    Debug.LogError($"answerButtons[{i}] is not assigned in the Inspector!");
-            //    continue;
-            //}
+            if (answerButtons[i] == null)
+            {
+                Debug.LogError($"answerButtons[{i}] is not assigned in the Inspector!");
+                continue;
+            }
 
             if (i != correctAnswerIndex)
             {
@@ -81,16 +81,17 @@ public class AnswerOptions : MonoBehaviour
     {
         if (index == correctAnswerIndex)
         {
-            resultText.text = "Correct";
-            //Debug.Log("Correct!");
+            resultText.text = "Correct!";
+            Debug.Log("Correct!");
+            timerController.IncrementCorrectAnswers();
         }
         else
         {
-            resultText.text = "Wrong";
-           //Debug.Log("Wrong!");
+            resultText.text = "Wrong!";
+            Debug.Log("Wrong!");
         }
 
-        timerController.ResetTimer(); 
-        GenerateAndDisplayProblem(); 
+        timerController.ResetTimer(); // Reset the timer
+        GenerateAndDisplayProblem(); // Generate the next problem
     }
 }
