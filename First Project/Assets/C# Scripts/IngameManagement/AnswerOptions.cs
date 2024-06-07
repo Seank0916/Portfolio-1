@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -9,6 +9,8 @@ public class AnswerOptions : MonoBehaviour
     private int correctAnswerIndex;
     public Button[] answerButtons;
     public TextMeshProUGUI problemText;
+    public TextMeshProUGUI resultText; 
+    public TimerController timerController; 
 
     private void Start()
     {
@@ -39,11 +41,11 @@ public class AnswerOptions : MonoBehaviour
 
         for (int i = 0; i < answerButtons.Length; i++)
         {
-            if (answerButtons[i] == null)
-            {
-                Debug.LogError($"answerButtons[{i}] is not assigned in the Inspector!");
-                continue;
-            }
+            //if (answerButtons[i] == null)
+            //{
+            //    Debug.LogError($"answerButtons[{i}] is not assigned in the Inspector!");
+            //    continue;
+            //}
 
             if (i != correctAnswerIndex)
             {
@@ -79,11 +81,16 @@ public class AnswerOptions : MonoBehaviour
     {
         if (index == correctAnswerIndex)
         {
-            Debug.Log("Correct!");
+            resultText.text = "Correct";
+            //Debug.Log("Correct!");
         }
         else
         {
-            Debug.Log("Wrong!");
+            resultText.text = "Wrong";
+           //Debug.Log("Wrong!");
         }
+
+        timerController.ResetTimer(); 
+        GenerateAndDisplayProblem(); 
     }
 }
