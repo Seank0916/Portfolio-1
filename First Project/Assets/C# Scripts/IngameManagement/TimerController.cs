@@ -10,10 +10,7 @@ public class TimerController : MonoBehaviour
     private float timer;
     public Slider timerSlider;
     public TextMeshProUGUI timerText;
-    public AnswerOptions answerOptions;
-    public int maxProblems = 15; // Total number of problems
-    private int problemCount = 0;
-    private int correctAnswers = 0; // To track the number of correct answers
+    public ProblemController problemController;
 
     private void Start()
     {
@@ -23,40 +20,15 @@ public class TimerController : MonoBehaviour
         StartCoroutine(TimerRoutine());
     }
 
-    public void IncrementCorrectAnswers()
-    {
-        correctAnswers++;
-    }
-
     public void ResetTimer()
     {
         timer = timeLimit;
         timerSlider.value = timer;
-        problemCount++;
-
-        if (problemCount >= maxProblems)
-        {
-            int stars = CalculateStars(correctAnswers);
-            PlayerPrefs.SetInt("Stars", stars); // Save the number of stars
-            SceneManager.LoadScene("Result");
-        }
-    }
-
-    private int CalculateStars(int correctAnswers)
-    {
-        if (correctAnswers == 15)
-            return 3;
-        else if (correctAnswers == 14)
-            return 2;
-        else if (correctAnswers == 13)
-            return 1;
-        else
-            return 0;
     }
 
     private IEnumerator TimerRoutine()
     {
-        while (problemCount < maxProblems)
+        while (problemController.ProblemCount < problemController.maxProblems)
         {
             timer -= Time.deltaTime;
             timerSlider.value = timer;
@@ -64,8 +36,9 @@ public class TimerController : MonoBehaviour
 
             if (timer <= 0)
             {
+                problemController.TimeOver(); // Handle time over
                 ResetTimer();
-                answerOptions.GenerateAndDisplayProblem();
+                problemController.GenerateAndDisplayProblem();
             }
 
             yield return null;

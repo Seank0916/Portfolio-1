@@ -1,16 +1,21 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class AnswerOptions : MonoBehaviour
+public class ProblemController : MonoBehaviour
 {
-    private int correctAnswerIndex;
     public Button[] answerButtons;
     public TextMeshProUGUI problemText;
-    public TextMeshProUGUI resultText; // New field for displaying the result
+    public TextMeshProUGUI resultText; // Field for displaying the result
     public TimerController timerController; // Reference to the TimerController
+    public int maxProblems = 15; // Total number of problems
+    private int problemCount = 0;
+    private int correctAnswers = 0; // To track the number of correct answers
+
+    public int ProblemCount => problemCount; // Public getter for problemCount
 
     private void Start()
     {
@@ -26,7 +31,7 @@ public class AnswerOptions : MonoBehaviour
 
     public void GenerateAnswerOptions()
     {
-        correctAnswerIndex = Random.Range(0, answerButtons.Length);
+        int correctAnswerIndex = Random.Range(0, answerButtons.Length);
         List<int> availableIndices = new List<int>();
         for (int i = 0; i < answerButtons.Length; i++)
         {
@@ -62,7 +67,7 @@ public class AnswerOptions : MonoBehaviour
             Button button = answerButtons[i].GetComponent<Button>();
             button.onClick.RemoveAllListeners(); // Ensure no duplicate listeners
             int index = i;
-            button.onClick.AddListener(() => OnAnswerSelected(index));
+            button.onClick.AddListener(() => OnAnswerSelected(index, correctAnswerIndex));
         }
     }
 
@@ -77,13 +82,13 @@ public class AnswerOptions : MonoBehaviour
         return newWrongAnswer;
     }
 
-    public void OnAnswerSelected(int index)
+    public void OnAnswerSelected(int index, int correctAnswerIndex)
     {
         if (index == correctAnswerIndex)
         {
             resultText.text = "Correct!";
             Debug.Log("Correct!");
-            timerController.IncrementCorrectAnswers();
+            correctAnswers++;
         }
         else
         {
@@ -91,7 +96,37 @@ public class AnswerOptions : MonoBehaviour
             Debug.Log("Wrong!");
         }
 
+        problemCount++;
         timerController.ResetTimer(); // Reset the timer
-        GenerateAndDisplayProblem(); // Generate the next problem
+
+        if (problemCount >= maxProblems)
+        {
+            int stars = CalculateStars(correctAnswers);
+            PlayerPrefs.SetInt("Stars", stars); // Save the number of stars
+            SceneManager.LoadScene("Result");
+        }
+        else
+        {
+            GenerateAndDisplayProblem(); // Generate the next problem
+        }
+    }
+
+    public void TimeOver()
+    {
+        resultText.text = "Time Over!";
+        Debug.Log("Time Over!");
+        problemCount++;
+    }
+
+    private int CalculateStars(int correctAnswers)
+    {
+        if (correctAnswers == 15)
+            return 3;
+        else if (correctAnswers == 14)
+            return 2;
+        else if (correctAnswers == 13)
+            return 1;
+        else
+            return 0;
     }
 }
