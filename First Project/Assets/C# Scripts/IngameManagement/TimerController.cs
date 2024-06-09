@@ -38,7 +38,6 @@ public class TimerController : MonoBehaviour
             {
                 problemController.TimeOver(); // Handle time over
                 ResetTimer();
-                problemController.GenerateAndDisplayProblem();
             }
 
             yield return null;

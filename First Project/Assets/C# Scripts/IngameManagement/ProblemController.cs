@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ProblemController : MonoBehaviour
 {
+    private int correctAnswerIndex;
     public Button[] answerButtons;
     public TextMeshProUGUI problemText;
     public TextMeshProUGUI resultText; // Field for displaying the result
@@ -14,11 +15,13 @@ public class ProblemController : MonoBehaviour
     public int maxProblems = 15; // Total number of problems
     private int problemCount = 0;
     private int correctAnswers = 0; // To track the number of correct answers
+    public float resultDisplayDuration = 1.5f; // Duration to display the result text
 
     public int ProblemCount => problemCount; // Public getter for problemCount
 
     private void Start()
     {
+        resultText.gameObject.SetActive(false); // Initially hide the result text
         GenerateAndDisplayProblem();
     }
 
@@ -31,7 +34,7 @@ public class ProblemController : MonoBehaviour
 
     public void GenerateAnswerOptions()
     {
-        int correctAnswerIndex = Random.Range(0, answerButtons.Length);
+        correctAnswerIndex = Random.Range(0, answerButtons.Length);
         List<int> availableIndices = new List<int>();
         for (int i = 0; i < answerButtons.Length; i++)
         {
@@ -86,13 +89,13 @@ public class ProblemController : MonoBehaviour
     {
         if (index == correctAnswerIndex)
         {
-            resultText.text = "Correct!";
+            DisplayResult("Correct!");
             Debug.Log("Correct!");
             correctAnswers++;
         }
         else
         {
-            resultText.text = "Wrong!";
+            DisplayResult("Wrong!");
             Debug.Log("Wrong!");
         }
 
@@ -107,15 +110,30 @@ public class ProblemController : MonoBehaviour
         }
         else
         {
-            GenerateAndDisplayProblem(); // Generate the next problem
+            GenerateAndDisplayProblem(); // Generate the next problem immediately
+            StartCoroutine(HideResultAfterDelay());
         }
     }
 
     public void TimeOver()
     {
-        resultText.text = "Time Over!";
+        DisplayResult("Time Over!");
         Debug.Log("Time Over!");
         problemCount++;
+        GenerateAndDisplayProblem(); // Generate the next problem immediately
+        StartCoroutine(HideResultAfterDelay());
+    }
+
+    private void DisplayResult(string message)
+    {
+        resultText.text = message;
+        resultText.gameObject.SetActive(true);
+    }
+
+    private IEnumerator HideResultAfterDelay()
+    {
+        yield return new WaitForSeconds(resultDisplayDuration); // Display for the specified duration
+        resultText.gameObject.SetActive(false);
     }
 
     private int CalculateStars(int correctAnswers)
