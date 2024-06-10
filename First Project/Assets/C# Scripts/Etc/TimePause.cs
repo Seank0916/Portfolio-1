@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class TimePause : MonoBehaviour
+public class TimePause : MonoBehaviour // 패널 오픈시 시간 정지 스크립트
 {
     public Button pauseButton;
     public Button resumeButton;

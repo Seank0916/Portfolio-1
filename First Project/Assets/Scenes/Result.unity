@@ -408,7 +408,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 375752111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafcd8eb2cb19204787f6c1383084221, type: 3}
+  m_Script: {fileID: 11500000, guid: d2e3e24612609f749bdb23cb55ef8ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HomeButton: {fileID: 375752113}
@@ -943,10 +943,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 911527817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85bd8813f70b92742b6352a1f224acfd, type: 3}
+  m_Script: {fileID: 11500000, guid: da1b2ec40539dfb489738464e96bd635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextGameButton: {fileID: 911527819}
+  StartButton: {fileID: 911527819}
 --- !u!1 &914942468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,10 +1553,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1993161765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a1e9411c4d9b6341b4c315022dd8c2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 241fcf8a2341cf346bf3e9ace23e8855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RestartButton: {fileID: 1993161767}
+  StartButton: {fileID: 1993161767}
 --- !u!1 &2091147454
 GameObject:
   m_ObjectHideFlags: 0

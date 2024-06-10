@@ -10,18 +10,18 @@ public class ProblemController : MonoBehaviour
     private int correctAnswerIndex;
     public Button[] answerButtons;
     public TextMeshProUGUI problemText;
-    public TextMeshProUGUI resultText; // Field for displaying the result
-    public TimerController timerController; // Reference to the TimerController
-    public int maxProblems = 15; // Total number of problems
+    public TextMeshProUGUI resultText; // 결과
+    public TimerController timerController; // TimerController 연결 
+    public int maxProblems = 15; // 총 문제 
     private int problemCount = 0;
-    private int correctAnswers = 0; // To track the number of correct answers
-    public float resultDisplayDuration = 1.5f; // Duration to display the result text
+    private int correctAnswers = 0; // 정답 확인 로직
+    public float resultDisplayDuration = 1.5f; // 결과 시간
 
     public int ProblemCount => problemCount; // Public getter for problemCount
 
     private void Start()
     {
-        resultText.gameObject.SetActive(false); // Initially hide the result text
+        resultText.gameObject.SetActive(false); // 문제 풀기 전까지 결과 숨김
         GenerateAndDisplayProblem();
     }
 
@@ -68,7 +68,7 @@ public class ProblemController : MonoBehaviour
             answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = usedAnswers[i].ToString();
 
             Button button = answerButtons[i].GetComponent<Button>();
-            button.onClick.RemoveAllListeners(); // Ensure no duplicate listeners
+            button.onClick.RemoveAllListeners(); // listeners 중복 삭제
             int index = i;
             button.onClick.AddListener(() => OnAnswerSelected(index, correctAnswerIndex));
         }
@@ -105,12 +105,12 @@ public class ProblemController : MonoBehaviour
         if (problemCount >= maxProblems)
         {
             int stars = CalculateStars(correctAnswers);
-            PlayerPrefs.SetInt("Stars", stars); // Save the number of stars
+            PlayerPrefs.SetInt("Stars", stars); // 결과 씬 별 저장 
             SceneManager.LoadScene("Result");
         }
         else
         {
-            GenerateAndDisplayProblem(); // Generate the next problem immediately
+            GenerateAndDisplayProblem(); // 다음 문제 생성
             StartCoroutine(HideResultAfterDelay());
         }
     }
@@ -120,7 +120,7 @@ public class ProblemController : MonoBehaviour
         DisplayResult("Time Over!");
         Debug.Log("Time Over!");
         problemCount++;
-        GenerateAndDisplayProblem(); // Generate the next problem immediately
+        GenerateAndDisplayProblem(); // 다음 문제 생성
         StartCoroutine(HideResultAfterDelay());
     }
 
@@ -136,7 +136,7 @@ public class ProblemController : MonoBehaviour
         resultText.gameObject.SetActive(false);
     }
 
-    private int CalculateStars(int correctAnswers)
+    private int CalculateStars(int correctAnswers) // 정답 수 따라 별 수정
     {
         if (correctAnswers == 15)
             return 3;
