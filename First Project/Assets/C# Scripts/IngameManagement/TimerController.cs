@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
-    public float timeLimit = 5f; // 5 seconds
+    public float timeLimit = 5f; // 문제 풀이 시간
     private float timer;
     public Slider timerSlider;
     public TextMeshProUGUI timerText;
@@ -32,18 +32,18 @@ public class TimerController : MonoBehaviour
         {
             timer -= Time.deltaTime;
             timerSlider.value = timer;
-            timerText.text = Mathf.Ceil(timer).ToString(); // Update the timer text
+            timerText.text = Mathf.Ceil(timer).ToString(); // Update the timer text*
 
             if (timer <= 0)
             {
-                problemController.TimeOver(); // Handle time over
+                problemController.TimeOver(); // 타임 오버
                 ResetTimer();
             }
 
             yield return null;
         }
 
-        // Load the Result scene after completing all problems
+        // 씬 전환
         SceneManager.LoadScene("Result");
     }
 }

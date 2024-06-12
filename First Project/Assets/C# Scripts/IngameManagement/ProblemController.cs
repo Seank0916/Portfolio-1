@@ -100,7 +100,7 @@ public class ProblemController : MonoBehaviour
         }
 
         problemCount++;
-        timerController.ResetTimer(); // Reset the timer
+        timerController.ResetTimer(); // 타이머 리셋
 
         if (problemCount >= maxProblems)
         {
@@ -132,7 +132,7 @@ public class ProblemController : MonoBehaviour
 
     private IEnumerator HideResultAfterDelay()
     {
-        yield return new WaitForSeconds(resultDisplayDuration); // Display for the specified duration
+        yield return new WaitForSeconds(resultDisplayDuration); // Display for the specified duration*
         resultText.gameObject.SetActive(false);
     }
 
