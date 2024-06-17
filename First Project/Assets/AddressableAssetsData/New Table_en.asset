@@ -22,6 +22,74 @@ MonoBehaviour:
     m_Localized: Start
     m_Metadata:
       m_Items: []
+  - m_Id: 6915330744320
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6932086988800
+    m_Localized: "English\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7158264832000
+    m_Localized: Korean
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375134851072
+    m_Localized: Game Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10116989788160
+    m_Localized: Are you sure?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10228486971392
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10277614854144
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10780486737920
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10931146137600
+    m_Localized: VFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30265935470592
+    m_Localized: Skip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30564297285632
+    m_Localized: Stages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30986483343360
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31091932340224
+    m_Localized: Home
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31163319394304
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31228448546816
+    m_Localized: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31982978670592
+    m_Localized: Next Stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32053723996160
+    m_Localized: Result
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
